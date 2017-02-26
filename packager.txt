@@ -1,0 +1,1 @@
+electron-packager . "Tree of Savior Addon Manager" --platform=win32 --arch=ia32 --icon="resources/tos-exp-256.ico" --appname="Tree of Savior Addon Manager" --app-copyright="Excrulon © 2016" --app-version=0.2.0 asar

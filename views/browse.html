@@ -1,0 +1,21 @@
+<div layout="column" layout-padding>
+	<md-input-container class="md-block">
+		<label>Search</label>
+		<input data-ng-model="browseController.searchQuery">
+	</md-input-container>
+	<div layout="row">
+		<md-radio-group layout="row" ng-model="browseController.isInstalled">
+			<md-radio-button data-ng-value="undefined" class="md-primary">All</md-radio-button>
+			<md-radio-button data-ng-value="true">Installed</md-radio-button>
+			<md-radio-button data-ng-value="false">Uninstalled</md-radio-button>
+		</md-radio-group>
+	</div>
+	<div layout="row">
+		<md-input-container>
+			<md-checkbox ng-model="browseController.isUpdateAvailable" aria-label="Is update available?">Is update available?</md-checkbox>
+		</md-input-container>
+	</div>
+	<div data-ng-repeat="addon in browseController.addons | orderBy:'name' | filter:{ isUpdateAvailable: browseController.isUpdateAvailable, isInstalled: browseController.isInstalled } | filter:browseController.searchQuery">
+		<addon addon="addon"></addon>
+	</div>
+</div>
